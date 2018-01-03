@@ -24,7 +24,8 @@ function init(c){
 window.onload = function () {
     app = new t3d.App({
         el: "div3d",
-        url: "https://speech.uinnova.com/static/models/security2",
+        // url: "https://speech.uinnova.com/static/models/security2",
+        url: "http://uinnova-model.oss-cn-beijing.aliyuncs.com/scenes/security2",
         ak:'app_test_key',
         complete: function () {
             console.log("app scene loaded");
