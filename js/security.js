@@ -9,7 +9,7 @@ function init(c){
     security.div3d = document.getElementById('div3d');
     
     hide_other();
-    create_panels(app.query('/buildings[1]/floors[2]/things').query('[物体类型=摄像头]'),"hello",'markPanel','block');
+    create_panels(app.query('/buildings[1]/floors[2]/things').query('[物体类型=摄像头]'),"hello");
     security.versions.forEach(function (t) { app.debug.scene.add(t);t.visible=false });
     camSign = document.querySelectorAll('.signCam');
     create_camera(window.innerWidth - 316,0);
