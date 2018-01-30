@@ -30,6 +30,8 @@ window.onload = function () {
         complete: function () {
             console.log("app scene loaded");
             init(config);
+            // 引导提示
+            startIntro(subwaySteps, 'folder');
         }
     });
 }
