@@ -1,4 +1,4 @@
-var app;
+var app, guiIcon;
 var config = {
 
 }
@@ -31,7 +31,7 @@ window.onload = function () {
             console.log("app scene loaded");
             init(config);
             // 引导提示
-            startIntro(subwaySteps, 'folder');
+            startIntro(securitySteps);
         }
     });
 }
@@ -46,19 +46,19 @@ function set_ui() {
         cerealsReserve: false,
         video: false,
     }
-    var gui = new dat.gui.GUI({
+    guiIcon = new dat.gui.GUI({
         type: 'icon2'
     });
-    security.div3d.insertBefore(gui.domElement,security.div3d.lastChild);
-    gui.setPosition({top: 150, right: 5});
-    var img0 = gui.addImageBoolean(obj, 'dimension');
-    // var img1 = gui.addImageBoolean(obj, 'temperature').title('聚焦物体');
-    // var img2 = gui.addImageBoolean(obj, 'humidity').title('楼层摊开');
-    // var img3 = gui.addImageBoolean(obj, 'statistics').title('左键框选');
-    // var img4 = gui.addImageBoolean(obj, 'status').title('反调摄像头');
-    var img5 = gui.addImageBoolean(obj, 'insect').title('盲区总览');
-    // var img6 = gui.addImageBoolean(obj, 'cerealsReserve').title('隐藏视锥');
-    var img7 = gui.addImageBoolean(obj, 'video').title('打开视屏墙');
+    security.div3d.insertBefore(guiIcon.domElement,security.div3d.lastChild);
+    guiIcon.setPosition({top: 150, right: 5});
+    var img0 = guiIcon.addImageBoolean(obj, 'dimension');
+    // var img1 = guiIcon.addImageBoolean(obj, 'temperature').title('聚焦物体');
+    // var img2 = guiIcon.addImageBoolean(obj, 'humidity').title('楼层摊开');
+    // var img3 = guiIcon.addImageBoolean(obj, 'statistics').title('左键框选');
+    // var img4 = guiIcon.addImageBoolean(obj, 'status').title('反调摄像头');
+    var img5 = guiIcon.addImageBoolean(obj, 'insect').title('盲区总览');
+    // var img6 = guiIcon.addImageBoolean(obj, 'cerealsReserve').title('隐藏视锥');
+    var img7 = guiIcon.addImageBoolean(obj, 'video').title('打开视屏墙');
     
     img0.imgUrl('http://47.93.162.148:8081/liangyw/images/security/2D.png');
     // img1.imgUrl('http://47.93.162.148:8081/liangyw/images/security/jujiao.png');
