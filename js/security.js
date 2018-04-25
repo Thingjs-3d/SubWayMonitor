@@ -10,7 +10,7 @@ function init(c){
     
     hide_other();
     create_panels(app.query('/buildings[1]/floors[2]/things').query('[物体类型=摄像头]'),"hello");
-    security.versions.forEach(function (t) { app.debug.scene.add(t);t.visible=false });
+    security.versions.forEach(function (t) { app.scene.add(t);t.visible=false });
     camSign = document.querySelectorAll('.signCam');
     create_camera(window.innerWidth - 316,0);
     set_ui();
@@ -46,8 +46,8 @@ function set_ui() {
         cerealsReserve: false,
         video: false,
     }
-    guiIcon = new dat.gui.GUI({
-        type: 'icon2'
+    guiIcon = new t3d.widget.ToolBar({
+        template: '2'
     });
     security.div3d.insertBefore(guiIcon.domElement,security.div3d.lastChild);
     guiIcon.setPosition({top: 150, right: 5});
@@ -188,8 +188,8 @@ function createDiv(){
                 var ui2data = {
                     iframe: true
                 };
-                uic = new dat.gui.GUI({
-                    type:'signboard2',
+                uic = new t3d.widget.Panel({
+                    template:'2',
                     name:'Video'+(3*j+i+1).toString(),
                     width:rect_x+"px"
                 });
@@ -230,9 +230,9 @@ function create_camera(right, top) {
             var ui2data = {
                 iframe: true
             };
-            cameraIframeUI = new dat.gui.GUI({
+            cameraIframeUI = new t3d.widget.Panel({
                 t3d: app,
-                type: 'signboard2',
+                template:'2',
                 name: t.children[0].children[1].innerHTML,
                 isClose: true,
                 width: "450px"
@@ -325,8 +325,8 @@ function mouse_region(ev) {
                 var ui2data = {
                     iframe: true
                 };
-                cameraIframeUI = new dat.gui.GUI({
-                    type:'signboard2',
+                cameraIframeUI = new t3d.widget.Panel({
+                    template:'2',
                     name:cams[0].children[0].children[1].innerHTML,
                     isClose: true,
                     isDrag: true,
@@ -415,7 +415,7 @@ function change_3d ( bool ) {
     // 防止旋转时候中断的bug
     app.camera.orbit.enabled = true;
     // 获取场景的大小
-    var box = new THREE.Box3().setFromObject(app.debug.scene);
+    var box = new THREE.Box3().setFromObject(app.scene);
     var offsetFactor = [0,1,0];
     var radius = box.getSize().length();//lenght 返回的是对角线长
     var center = box.getCenter();
